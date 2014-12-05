@@ -44,8 +44,6 @@ var Datauri = require('datauri'),
 console.log(dUri.content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
 console.log(dUri.mimetype); //=> "image/png"
 console.log(dUri.base64); //=> "iVBORw0KGgoAAAANSUhEUgAA..."
-console.log(dUri.getCss()); //=> "\n.case {\n    background: url('data:image/png;base64,iVBORw..."
-console.log(dUri.getCss("myClass")); //=> "\n.myClass {\n    background: url('data:image/png;base64,iVBORw..."
 ```
 
 ### Async
@@ -73,8 +71,6 @@ dUri.on('encoded', function (content) {
 
         console.log(this.mimetype); //=> "image/png"
         console.log(this.base64); //=> "iVBORw0KGgoAAAANSUhEUgAA..."
-        console.log(this.getCss()); //=> "\n.case {\n    background: url('data:image/png;base64,iVBORw..."
-        console.log(this.getCss("myClass")); //=> "\n.myClass {\n    background: url('data:image/png;base64,iVBORw..."
     })
     .on('error', function (content) {
         console.log('Fail!');
@@ -95,8 +91,6 @@ DataURI('test/myfile.png', function (err, content) {
 
     console.log(this.mimetype); //=> "image/png"
     console.log(this.base64); //=> "iVBORw0KGgoAAAANSUhEUgAA..."
-    console.log(this.getCss()); //=> "\n.case {\n    background: url('data:image/png;base64,iVBORw..."
-    console.log(this.getCss("myClass")); //=> "\n.myClass {\n    background: url('data:image/png;base64,iVBORw..."
 });
 
 ```
@@ -124,7 +118,6 @@ dUri.format('.png', 'xkcd');
 console.log(dUri.content); //=> "data:image/png;base64,eGtjZA=="
 console.log(dUri.mimetype); //=> "image/png"
 console.log(dUri.base64); //=> "eGtjZA=="
-console.log(dUri.getCss("myClassName")); //=> "\n.myClassName {\n    background: url('data:image/png;base64,eGtjZA==..."
 
 ```
 
@@ -144,9 +137,12 @@ dUri.format('.png', buffer);
 console.log(dUri.content); //=> "data:image/png;base64,eGtjZA=="
 console.log(dUri.mimetype); //=> "image/png"
 console.log(dUri.base64); //=> "eGtjZA=="
-console.log(dUri.getCss("myClassName")); //=> "\n.myClassName {\n    background: url('data:image/png;base64,eGtjZA==..."
-
 ```
+
+CSS TEMPLATE
+------------
+There is a datauri plugin to deal with css templates:
+[datauri.template](https://github.com/heldr/datauri.template)
 
 GRUNT
 -----
@@ -162,7 +158,7 @@ There are a bunch of grunt plugins running on top of datauri module.
 GULP
 -----
 
-* [gulp-image-data-uri](https://github.com/adam-lynch/gulp-image-data-uri) - A [Gulp](http://github.com/gulpjs/gulp) plugin for converting images to inline data-URIs. Intended to be a simple single-purpose wrapper for [heldr/datauri](https://github.com/heldr/datauri). 
+* [gulp-image-data-uri](https://github.com/adam-lynch/gulp-image-data-uri) - A [Gulp](http://github.com/gulpjs/gulp) plugin for converting images to inline data-URIs. Intended to be a simple single-purpose wrapper for [heldr/datauri](https://github.com/heldr/datauri).
 
 DEVELOPING
 ----------
