@@ -3,7 +3,7 @@ describe('Data-uri Class', function () {
 
     var should     = require('chai').should(),
         sinon      = require('sinon'),
-        DataURI    = require('../../datauri'),
+        DataURI    = require('../../'),
         fixture    = 'test/fixture.gif',
         wrongFile  = 'PAPARIPUPI',
         expected   = {
@@ -245,6 +245,30 @@ describe('Data-uri Class', function () {
             });
         });
 
+    });
+
+    describe('read stream', function () {
+
+            it('should run through events "data" and "end"', function (done) {
+                var datauri = new DataURI(),
+                    data    = '';
+
+                datauri
+                    .on('data', function(chunk) {
+                        data += chunk;
+                    })
+                    .on('end', function() {
+                        data.should.equal(expected.content);
+                        done();
+                    }).
+                    encode(fixture);
+            });
+
+            it.skip('should run through pipe');
+    });
+
+    describe('use extension', function () {
+        it.skip('should extend datauri with thirty party code');
     });
 
 });

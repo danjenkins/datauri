@@ -11,7 +11,7 @@ install:
 clean:
 	rm -rf node_modules
 lint:
-	$(MODULE)jshint datauri.js lib/* --config .jshintrc
+	$(MODULE)jshint index.js lib/* --config .jshintrc
 spec:
 	$(MOCHA) --reporter spec
 dot:
